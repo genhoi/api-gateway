@@ -1,0 +1,7 @@
+<Monitoring>
+  <Host address="test_app" comment="Load testing">
+    <CPU measure="user,system,iowait"/>
+	  <Memory measure="free,used"/>
+	  <Disk measure="read,write"/>
+  </Host>
+</Monitoring>

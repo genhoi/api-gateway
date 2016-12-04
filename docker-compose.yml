@@ -1,0 +1,68 @@
+version: '2'
+services:
+  ya-tank:
+    image: direvius/yandex-tank
+    volumes:
+      - ./ssh:/root/.ssh
+      - ./test_config:/var/loadtest
+    links:
+      - lapis
+      - lumen
+      - slim
+      - php
+      - openresty
+      - net_core
+
+  lapis:
+    build:
+      context: ./services/lapis
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  lumen:
+    build:
+      context: ./services/lumen
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  slim:
+    build:
+      context: ./services/slim
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  openresty:
+    build:
+      context: ./services/openresty
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  php:
+    build:
+      context: ./services/php
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  net_core:
+    build:
+      context: ./services/net_core
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22

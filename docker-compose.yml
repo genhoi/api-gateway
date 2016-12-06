@@ -11,6 +11,8 @@ services:
       - slim
       - php
       - openresty
+      - openresty_hello
+      - openresty_world
       - net_core
 
   lapis:
@@ -43,6 +45,24 @@ services:
   openresty:
     build:
       context: ./services/openresty
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  openresty_hello:
+    build:
+      context: ./services/openresty_hello
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  openresty_world:
+    build:
+      context: ./services/openresty_world
     volumes:
       - ./ssh:/root/.ssh
     expose:

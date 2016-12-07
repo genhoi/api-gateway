@@ -14,6 +14,8 @@ services:
       - openresty_hello
       - openresty_world
       - net_core
+      - react
+      - react_slim
 
   lapis:
     build:
@@ -81,6 +83,24 @@ services:
   net_core:
     build:
       context: ./services/net_core
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  react:
+    build:
+      context: ./services/react
+    volumes:
+      - ./ssh:/root/.ssh
+    expose:
+      - 80
+      - 22
+
+  react_slim:
+    build:
+      context: ./services/react_slim
     volumes:
       - ./ssh:/root/.ssh
     expose:

@@ -10,7 +10,7 @@ RUN useradd -ms /bin/bash -u ${VOLUME_USER_ID} -U ${VOLUME_USER}
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get update && \
-    apt-get install -y openssh-server openssl \
+    apt-get install -y openssh-server openssl zlib1g-dev \
                        nginx \
                        python-setuptools && easy_install supervisor
 
@@ -19,7 +19,7 @@ ADD build/supervisor /etc/supervisor
 # nginx
 ADD build/nginx /etc/nginx
 # php
-RUN docker-php-ext-install mbstring opcache
+RUN docker-php-ext-install mbstring opcache zip
 COPY build/php/php-fpm.conf /usr/local/etc/php-fpm.conf
 COPY build/php/php.ini /usr/local/etc/php/php.ini
 

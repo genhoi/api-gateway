@@ -1,0 +1,10 @@
+{
+    "name": "php-react",
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "^6.2",
+        "react/react": "^0.5@dev",
+        "wyrihaximus/react-guzzle-psr7": "^1.0"
+    }
+
+}

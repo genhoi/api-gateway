@@ -22,7 +22,7 @@ RUN mkdir -p /var/log/supervisor && \
     chown -R ${VOLUME_USER}:${VOLUME_USER} /var/log/nginx
 
 RUN cd ${VOLUME_DIR} && \
-    su ${VOLUME_USER} -c 'dotnet restore'
+    dotnet restore
 
 # SSH config
 RUN echo 'root:123' | chpasswd && \

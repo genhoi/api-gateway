@@ -21,7 +21,7 @@ RUN echo 'root:123' | chpasswd && \
     echo "export VISIBLE=now" >> /etc/profile
 
 RUN /usr/local/openresty/luajit/bin/luarocks install --server=http://rocks.moonscript.org/manifests/leafo lapis && \
-    ln -s /usr/local/openresty/luajit/bin/lapis /usr/bin/lapis
+    ln -s /usr/local/openresty/luajit/bin/lapis /usr/bin/lapis && \
     ln -s /usr/local/openresty/bin/opm /usr/bin/opm
 
 ADD src/ ${VOLUME_DIR}/

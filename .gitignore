@@ -1,3 +1,5 @@
 .idea/
 /test_config/logs/
 /test_config/token.txt
+.gitignore
+project.lock.json
